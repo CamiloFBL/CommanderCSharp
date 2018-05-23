@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
+using System.Windows.Forms;
 
 namespace Commander
 {
@@ -375,6 +376,49 @@ namespace Commander
 
             commInit = xnode.InnerText;
             Console.WriteLine(commInit);
+        }
+
+        public static Boolean CommandCheck(String command)
+        {
+            if(command.Equals(commExit) || commNamesByKeyPress.Contains(command) || commNamesByApps.Contains(command))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static void ExecuteCommand(string command)
+        {
+            Console.WriteLine("ExecuteCommand method initializing...");
+            if (command.Equals(commExit))
+            {
+                Console.WriteLine("Call to exit program.");
+                Application.Exit();
+            }
+
+            if (commNamesByKeyPress.Contains(command))
+            {
+                int index = Array.IndexOf(commNamesByKeyPress, command);
+                String[] keyPresses;
+                keyPresses = commKeyPress[index].Split('+');
+                for(int i = 0; keyPresses.Length > i; i++)
+                {
+                    Console.WriteLine(keyPresses[i]);
+                    CommanderRobot.RobotKeyPress(keyPresses[i]);
+                }
+                for (int i = 0; keyPresses.Length > i; i++)
+                {
+                    CommanderRobot.RobotKeyRelease(keyPresses[i]);
+                }
+            }
+
+            if (commNamesByApps.Contains(command))
+            {
+                CommanderRobot.RobotExecApp(command);
+            }
         }
     }
 }
