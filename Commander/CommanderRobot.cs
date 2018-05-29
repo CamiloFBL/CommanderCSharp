@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using WindowsInput;
 using WindowsInput.Native;
 
@@ -362,6 +363,25 @@ namespace Commander
             {
                 Console.WriteLine(e.StackTrace);
             }
+        }
+
+        internal static bool KeysCheck(object validateComm)
+        {
+            String[] keys;
+            String keysString = validateComm.ToString();
+            keys = keysString.Split('+');
+            for (int i = 0; i < keys.Length; i++)
+            {
+                String key = keys[i];
+                Console.WriteLine(key);
+
+                if (!allowedKeys.Contains(key))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

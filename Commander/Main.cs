@@ -16,6 +16,7 @@ namespace Commander
         {
             InitializeComponent();
             CommanderFunctions.InitCheck();
+            AcceptButton = btnSubmit;
         }
 
         private void Submit(object sender, KeyEventArgs e)
@@ -69,6 +70,12 @@ namespace Commander
         private void MenuExit(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void OpenSettings(object sender, EventArgs e)
+        {
+            Settings m = new Settings();
+            m.Show();
         }
     }
 }

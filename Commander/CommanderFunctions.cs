@@ -30,27 +30,29 @@ namespace Commander
             String txtCommKeyPress = "CommKeyPress.txt";
             String txtCommNamesByApps = "CommNamesByApps.txt";
             String txtCommAppsPath = "CommAppsPath.txt";
+
             try
             {
                 if (File.Exists(txtCommNamesByKeyPress) && File.Exists(txtCommKeyPress))
                 {
                     int linesCount1 = 0;
-                    StreamReader sr = new StreamReader(txtCommNamesByKeyPress);
-
-                    while (sr.ReadLine() != null)
+                    using (StreamReader sr = new StreamReader(txtCommNamesByKeyPress))
                     {
-                        linesCount1++;
+                        while (sr.ReadLine() != null)
+                        {
+                            linesCount1++;
+                        }
                     }
-                    sr.Close();
 
                     int linesCount2 = 0;
-                    StreamReader sr2 = new StreamReader(txtCommKeyPress);
-                    while (sr2.ReadLine() != null)
+                    using (StreamReader sr = new StreamReader(txtCommKeyPress))
                     {
-                        linesCount2++;
+                        while (sr.ReadLine() != null)
+                        {
+                            linesCount2++;
+                        }
                     }
-                    sr2.Close();
-
+                    
                     if (linesCount1 == linesCount2)
                     {
                         Console.WriteLine("Commands by key press files found...");
@@ -74,21 +76,22 @@ namespace Commander
                 if (File.Exists(txtCommNamesByApps) && File.Exists(txtCommAppsPath))
                 {
                     int linesCount1 = 0;
-                    StreamReader sr = new StreamReader(txtCommNamesByApps);
-
-                    while (sr.ReadLine() != null)
+                    using (StreamReader sr = new StreamReader(txtCommNamesByApps))
                     {
-                        linesCount1++;
+                        while (sr.ReadLine() != null)
+                        {
+                            linesCount1++;
+                        }
                     }
-                    sr.Close();
 
                     int linesCount2 = 0;
-                    StreamReader sr2 = new StreamReader(txtCommAppsPath);
-                    while (sr2.ReadLine() != null)
+                    using (StreamReader sr = new StreamReader(txtCommAppsPath))
                     {
-                        linesCount2++;
+                        while (sr.ReadLine() != null)
+                        {
+                            linesCount2++;
+                        }
                     }
-                    sr2.Close();
 
                     if (linesCount1 == linesCount2)
                     {
@@ -121,7 +124,7 @@ namespace Commander
 
         private static void CreateCommNamesByKeyPress()
         {
-            String txtCommNamesByKeyPress = AppDomain.CurrentDomain.BaseDirectory + "CommNamesByKeyPress.txt";
+            String txtCommNamesByKeyPress = Directory.GetCurrentDirectory()  + "\\CommNamesByKeyPress.txt";
             commNamesByKeyPress = new String[] { "whome", "taskmgr" };
             foreach (var item in commNamesByKeyPress)
                 Console.WriteLine(item);
@@ -137,27 +140,27 @@ namespace Commander
 
             try
             {
-                StreamReader sr = new StreamReader("CommNamesByKeyPress.txt");
-                while (sr.ReadLine() != null)
+                using (StreamReader sr = new StreamReader("CommNamesByKeyPress.txt"))
                 {
-                    linesCount++;
+                    while (sr.ReadLine() != null)
+                    {
+                        linesCount++;
+                    }
                 }
 
                 commNames = new String[linesCount];
                 Console.WriteLine(commNames.Length);
                 commNamesByKeyPress = new String[linesCount];
 
-                sr = new StreamReader("CommNamesByKeyPress.txt");
-
-                for (int i = 0; (line = sr.ReadLine()) != null; i++)
+                using (StreamReader sr = new StreamReader("CommNamesByKeyPress.txt"))
                 {
-                    commNames[i] = line;
-                    Console.WriteLine(line);
-                    commNamesByKeyPress[i] = line;
+                    for (int i = 0; (line = sr.ReadLine()) != null; i++)
+                    {
+                        commNames[i] = line;
+                        Console.WriteLine(line);
+                        commNamesByKeyPress[i] = line;
+                    }
                 }
-
-                sr.Close();
-
                 Console.WriteLine("File closed.");
             }
             catch (Exception e)
@@ -168,7 +171,7 @@ namespace Commander
 
         private static void CreateCommKeyPress()
         {
-            String txtCommKeyPress = AppDomain.CurrentDomain.BaseDirectory + "CommKeyPress.txt";
+            String txtCommKeyPress = Directory.GetCurrentDirectory() + "\\CommKeyPress.txt";
             commKeyPress = new String[] { "windows", "ctrl+shift+esc" };
             foreach (var item in commKeyPress)
                 Console.WriteLine(item);
@@ -184,27 +187,27 @@ namespace Commander
 
             try
             {
-                StreamReader sr = new StreamReader("CommKeyPress.txt");
-                while (sr.ReadLine() != null)
+                using (StreamReader sr = new StreamReader("CommKeyPress.txt"))
                 {
-                    linesCount++;
+                    while (sr.ReadLine() != null)
+                    {
+                        linesCount++;
+                    }
                 }
 
                 comms = new String[linesCount];
                 Console.WriteLine(comms.Length);
                 commKeyPress = new String[linesCount];
 
-                sr = new StreamReader("CommKeyPress.txt");
-
-                for (int i = 0; (line = sr.ReadLine()) != null; i++)
+                using (StreamReader sr = new StreamReader("CommKeyPress.txt"))
                 {
-                    comms[i] = line;
-                    Console.WriteLine(line);
-                    commKeyPress[i] = line;
+                    for (int i = 0; (line = sr.ReadLine()) != null; i++)
+                    {
+                        comms[i] = line;
+                        Console.WriteLine(line);
+                        commKeyPress[i] = line;
+                    }
                 }
-
-                sr.Close();
-
                 Console.WriteLine("File closed.");
             }
             catch (Exception e)
@@ -215,7 +218,7 @@ namespace Commander
 
         private static void CreateCommNamesByApps()
         {
-            String txtCommNamesByApps = AppDomain.CurrentDomain.BaseDirectory + "CommNamesByApps.txt";
+            String txtCommNamesByApps = Directory.GetCurrentDirectory() + "\\CommNamesByApps.txt";
             commNamesByApps = new String[] { "notepad", "calculator" };
             foreach (var item in commNamesByApps)
                 Console.WriteLine(item);
@@ -231,26 +234,27 @@ namespace Commander
 
             try
             {
-                StreamReader sr = new StreamReader("CommNamesByApps.txt");
-                while (sr.ReadLine() != null)
+                using (StreamReader sr = new StreamReader("CommNamesByApps.txt"))
                 {
-                    linesCount++;
+                    while (sr.ReadLine() != null)
+                    {
+                        linesCount++;
+                    }
                 }
 
                 commNames = new String[linesCount];
                 Console.WriteLine(commNames.Length);
                 commNamesByApps = new String[linesCount];
 
-                sr = new StreamReader("CommNamesByApps.txt");
-
-                for (int i = 0; (line = sr.ReadLine()) != null; i++)
+                using (StreamReader sr = new StreamReader("CommNamesByApps.txt"))
                 {
-                    commNames[i] = line;
-                    Console.WriteLine(line);
-                    commNamesByApps[i] = line;
+                    for (int i = 0; (line = sr.ReadLine()) != null; i++)
+                    {
+                        commNames[i] = line;
+                        Console.WriteLine(line);
+                        commNamesByApps[i] = line;
+                    }
                 }
-
-                sr.Close();
 
                 Console.WriteLine("File closed.");
             }
@@ -262,7 +266,7 @@ namespace Commander
 
         private static void CreateCommAppsPath()
         {
-            String txtCommAppsPath = AppDomain.CurrentDomain.BaseDirectory + "CommAppsPath.txt";
+            String txtCommAppsPath = Directory.GetCurrentDirectory() + "\\CommAppsPath.txt";
             commAppsPath = new String[] { "notepad", "calc" };
             foreach (var item in commAppsPath)
                 Console.WriteLine(item);
@@ -278,27 +282,27 @@ namespace Commander
 
             try
             {
-                StreamReader sr = new StreamReader("CommAppsPath.txt");
-                while (sr.ReadLine() != null)
+                using (StreamReader sr = new StreamReader("CommAppsPath.txt"))
                 {
-                    linesCount++;
+                    while (sr.ReadLine() != null)
+                    {
+                        linesCount++;
+                    }
                 }
 
                 comms = new String[linesCount];
                 Console.WriteLine(comms.Length);
                 commAppsPath = new String[linesCount];
 
-                sr = new StreamReader("CommAppsPath.txt");
-
-                for (int i = 0; (line = sr.ReadLine()) != null; i++)
+                using (StreamReader sr = new StreamReader("CommAppsPath.txt"))
                 {
-                    comms[i] = line;
-                    Console.WriteLine(line);
-                    commAppsPath[i] = line;
+                    for (int i = 0; (line = sr.ReadLine()) != null; i++)
+                    {
+                        comms[i] = line;
+                        Console.WriteLine(line);
+                        commAppsPath[i] = line;
+                    }
                 }
-
-                sr.Close();
-
                 Console.WriteLine("File closed.");
             }
             catch (Exception e)
@@ -309,7 +313,7 @@ namespace Commander
 
         public static void CheckXMLFile()
         {
-            String xmlpath = AppDomain.CurrentDomain.BaseDirectory + "commander.xml";
+            String xmlpath = Directory.GetCurrentDirectory() + "\\commander.xml";
             if (File.Exists(xmlpath))
             {
                 Console.WriteLine("XML file found...");
@@ -324,7 +328,7 @@ namespace Commander
 
         private static void XMLRead()
         {
-            String xmlpath = AppDomain.CurrentDomain.BaseDirectory + "commander.xml";
+            String xmlpath = Directory.GetCurrentDirectory() + "\\commander.xml";
             try
             {
                 XmlDocument xml = new XmlDocument();
@@ -355,7 +359,7 @@ namespace Commander
 
         private static void XMLCreate()
         {
-            String xmlpath = AppDomain.CurrentDomain.BaseDirectory + "commander.xml";
+            String xmlpath = Directory.GetCurrentDirectory() + "\\commander.xml";
 
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
