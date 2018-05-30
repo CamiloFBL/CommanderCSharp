@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,13 +38,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.apply = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.Button();
-            this.console = new System.Windows.Forms.Button();
             this.ListCommByKeyPress = new System.Windows.Forms.DataGridView();
             this.commKeyNamesList = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commKeyPressesList = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ListCommByApps = new System.Windows.Forms.DataGridView();
             this.commAppPathsList = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commAppNamesList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.console = new System.Windows.Forms.Button();
             this.help = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
@@ -161,27 +161,18 @@
             this.close.UseVisualStyleBackColor = true;
             this.close.Click += new System.EventHandler(this.CloseForm);
             // 
-            // console
-            // 
-            this.console.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.console.Location = new System.Drawing.Point(34, 335);
-            this.console.Name = "console";
-            this.console.Size = new System.Drawing.Size(75, 23);
-            this.console.TabIndex = 19;
-            this.console.Text = "console print";
-            this.console.UseVisualStyleBackColor = true;
-            this.console.Click += new System.EventHandler(this.printLists);
-            // 
             // ListCommByKeyPress
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ListCommByKeyPress.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.ListCommByKeyPress.AllowUserToResizeColumns = false;
+            this.ListCommByKeyPress.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ListCommByKeyPress.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ListCommByKeyPress.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListCommByKeyPress.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.commKeyNamesList,
@@ -189,8 +180,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.ListCommByKeyPress, 2);
             this.ListCommByKeyPress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListCommByKeyPress.Location = new System.Drawing.Point(3, 85);
+            this.ListCommByKeyPress.MultiSelect = false;
             this.ListCommByKeyPress.Name = "ListCommByKeyPress";
             this.ListCommByKeyPress.RowHeadersWidth = 25;
+            this.ListCommByKeyPress.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.ListCommByKeyPress.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ListCommByKeyPress.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ListCommByKeyPress.Size = new System.Drawing.Size(280, 213);
@@ -215,14 +208,16 @@
             // 
             // ListCommByApps
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ListCommByApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.ListCommByApps.AllowUserToResizeColumns = false;
+            this.ListCommByApps.AllowUserToResizeRows = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ListCommByApps.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ListCommByApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ListCommByApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.commAppPathsList,
@@ -230,8 +225,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.ListCommByApps, 2);
             this.ListCommByApps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListCommByApps.Location = new System.Drawing.Point(299, 85);
+            this.ListCommByApps.MultiSelect = false;
             this.ListCommByApps.Name = "ListCommByApps";
             this.ListCommByApps.RowHeadersWidth = 25;
+            this.ListCommByApps.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.ListCommByApps.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.ListCommByApps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ListCommByApps.Size = new System.Drawing.Size(282, 213);
@@ -253,6 +250,17 @@
             this.commAppNamesList.Name = "commAppNamesList";
             this.commAppNamesList.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.commAppNamesList.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // console
+            // 
+            this.console.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.console.Location = new System.Drawing.Point(34, 335);
+            this.console.Name = "console";
+            this.console.Size = new System.Drawing.Size(75, 23);
+            this.console.TabIndex = 19;
+            this.console.Text = "console print";
+            this.console.UseVisualStyleBackColor = true;
+            this.console.Click += new System.EventHandler(this.printLists);
             // 
             // help
             // 

@@ -311,7 +311,8 @@ namespace Commander
 
         private void OpenButtonsHelp(object sender, EventArgs e)
         {
-
+            SettingsButtonsHelp m = new SettingsButtonsHelp();
+            m.Show();
         }
 
         private void printLists(object sender, EventArgs e)

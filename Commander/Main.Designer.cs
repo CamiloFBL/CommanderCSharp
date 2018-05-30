@@ -45,12 +45,14 @@
             // 
             // menuBar
             // 
+            this.menuBar.GripMargin = new System.Windows.Forms.Padding(0);
             this.menuBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.editMenu,
             this.helpMenu});
             this.menuBar.Location = new System.Drawing.Point(0, 0);
             this.menuBar.Name = "menuBar";
+            this.menuBar.Padding = new System.Windows.Forms.Padding(0);
             this.menuBar.Size = new System.Drawing.Size(784, 24);
             this.menuBar.TabIndex = 0;
             this.menuBar.Text = "menuBar";
@@ -60,7 +62,7 @@
             this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeMenuItem});
             this.fileMenu.Name = "fileMenu";
-            this.fileMenu.Size = new System.Drawing.Size(37, 20);
+            this.fileMenu.Size = new System.Drawing.Size(37, 24);
             this.fileMenu.Text = "File";
             // 
             // closeMenuItem
@@ -75,7 +77,7 @@
             this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsMenuItem});
             this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(39, 20);
+            this.editMenu.Size = new System.Drawing.Size(39, 24);
             this.editMenu.Text = "Edit";
             // 
             // settingsMenuItem
@@ -90,7 +92,7 @@
             this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutMenuItem});
             this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(44, 20);
+            this.helpMenu.Size = new System.Drawing.Size(44, 24);
             this.helpMenu.Text = "Help";
             // 
             // aboutMenuItem
@@ -142,10 +144,11 @@
             this.log.BackColor = System.Drawing.SystemColors.Window;
             this.tableLayoutPanel1.SetColumnSpan(this.log, 2);
             this.log.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.log.Location = new System.Drawing.Point(3, 3);
+            this.log.Location = new System.Drawing.Point(3, 0);
+            this.log.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.log.Name = "log";
             this.log.ReadOnly = true;
-            this.log.Size = new System.Drawing.Size(778, 502);
+            this.log.Size = new System.Drawing.Size(778, 505);
             this.log.TabIndex = 2;
             this.log.Text = "";
             this.log.TextChanged += new System.EventHandler(this.LogAutoScroll);

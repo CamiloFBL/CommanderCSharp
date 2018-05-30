@@ -370,6 +370,7 @@ namespace Commander
             String[] keys;
             String keysString = validateComm.ToString();
             keys = keysString.Split('+');
+
             for (int i = 0; i < keys.Length; i++)
             {
                 String key = keys[i];
